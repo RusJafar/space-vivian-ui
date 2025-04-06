@@ -1,25 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from "styled-components";
+import baseTheme from "./theme";
+import MainPage24 from "./pages/MainPage24";
+
+const AppStyled = styled.div`
+    background: ${baseTheme.colors.cotton};
+    width: 100%;
+`
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <AppStyled className="App">
+            <MainPage24 />
+        </AppStyled>
+    );
 }
 
 export default App;
