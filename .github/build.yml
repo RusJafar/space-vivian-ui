@@ -1,0 +1,36 @@
+name: Build Project
+
+on:
+  push:
+    branches:
+      - test-branch # Запускать сборку при пуше в ветку main
+  pull_request:
+    branches:
+      - main # Запускать сборку при создании PR в ветку main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Проверка кода из репозитория
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Установка Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Укажите версию Node.js
+
+      # Установка зависимостей
+      - name: Install dependencies
+        run: npm install
+
+      # Сборка проекта
+      - name: Build project
+        run: npm run build
+
+      # (Опционально) Запуск тестов
+      - name: Run tests
+        run: npm test
