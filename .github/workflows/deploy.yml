@@ -25,4 +25,4 @@ jobs:
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
           docker-compose down
-          docker-compose -f ./docker-compose.yaml up -d --build
+          docker-compose -f ../../docker-compose.yaml up -d --build
