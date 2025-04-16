@@ -3,7 +3,7 @@ name: Deploy to VPS via SSH
 on:
   push:
     branches:
-      - test-branch # Trigger build on push to the test-branch
+      - test-branch # Trigger build on push to the test-branch //
   pull_request:
     branches:
       - main # Trigger build when creating a PR to the main branch
