@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - test-branch # Trigger build on push to the test-branch //
+      - main
   pull_request:
     branches:
       - main # Trigger build when creating a PR to the main branch
