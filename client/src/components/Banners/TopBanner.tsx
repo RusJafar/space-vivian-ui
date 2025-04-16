@@ -7,13 +7,12 @@ import {
     TopBannerRow
 } from "./TopBannerStyled";
 import BannerSlider from "../BannerSlider/BannerSlider";
-import bannerBg from '../../imges/svg/wave-haikei.svg'
 
 const TopBanner = () => {
 
     return (
         <>
-            <TopBannerContainerStyled bg={bannerBg}>
+            <TopBannerContainerStyled>
 
                 <TopBannerBgStyled>
                     <TopBannerRow style={{zIndex: 1}}>
