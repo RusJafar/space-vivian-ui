@@ -17,14 +17,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Copy files to VPS
-      uses: appleboy/scp-action@v0.1.7
-      with:
-        host: ${{ secrets.VPS_IP }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.VPS_SSH_KEY }}
-        source: "./" # Локальная директория (репозиторий)
-        target: "./" # Директория на сервере   
+    # - name: Copy files to VPS
+    #   uses: appleboy/scp-action@v0.1.7
+    #   with:
+    #     host: ${{ secrets.VPS_IP }}
+    #     username: ${{ secrets.VPS_USER }}
+    #     key: ${{ secrets.VPS_SSH_KEY }}
+    #     source: "./" # Локальная директория (репозиторий)
+    #     target: "./" # Директория на сервере   
 
     - name: Deploy to VPS
       uses: appleboy/ssh-action@v0.1.7
@@ -35,5 +35,7 @@ jobs:
         script: |
           pwd
           ls -la
+          git clone https://github.com/RusJafar/space-vivian-ui.git
           docker-compose down
-          docker-compose -f docker-compose.yaml up -d --build
+          docker system prune -a
+          docker-compose -f ./space-vivian-ui/docker-compose.yaml up -d --build
