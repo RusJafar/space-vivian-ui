@@ -1,41 +1,56 @@
-name: Deploy to VPS via SSH/1
+name: Deploy to VPS
 
 on:
   push:
     branches:
-      - test-branch # Trigger build on push to the test-branch //
+      - test-branch
       - main
   pull_request:
     branches:
-      - main # Trigger build when creating a PR to the main branch
-  
+      - main
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-  
+
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    # - name: Copy files to VPS
-    #   uses: appleboy/scp-action@v0.1.7
-    #   with:
-    #     host: ${{ secrets.VPS_IP }}
-    #     username: ${{ secrets.VPS_USER }}
-    #     key: ${{ secrets.VPS_SSH_KEY }}
-    #     source: "./" # Локальная директория (репозиторий)
-    #     target: "./" # Директория на сервере   
+    - name: Install SSH key
+      uses: webfactory/ssh-agent@v0.8.0
+      with:
+        ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
 
-    - name: Deploy to VPS
-      uses: appleboy/ssh-action@v0.1.7
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v1
       with:
         host: ${{ secrets.VPS_IP }}
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
-          pwd
-          ls -la
-          git clone https://github.com/RusJafar/space-vivian-ui.git
+          echo "Starting deployment..."
+          cd ~
+          
+          # Clone or update repository
+          if [ -d "space-vivian-ui" ]; then
+            echo "Updating existing repository..."
+            cd space-vivian-ui
+            git pull origin main
+          else
+            echo "Cloning repository..."
+            git clone https://github.com/RusJafar/space-vivian-ui.git
+            cd space-vivian-ui
+          fi
+          
+          # Docker operations
+          echo "Stopping existing containers..."
           docker-compose down
-          docker system prune -a
-          docker-compose -f ./space-vivian-ui/docker-compose.yaml up -d --build
+          
+          echo "Cleaning up Docker system..."
+          docker system prune -af
+          
+          echo "Building and starting new containers..."
+          docker-compose -f docker-compose.yaml up -d --build
+          
+          echo "Deployment completed successfully!"
