@@ -3,19 +3,21 @@ name: Deploy to VPS via SSH
 on:
   push:
     branches:
-      - test-branch # Запускать сборку при пуше в ветку test-branch
+      - test-branch # Trigger build on push to the test-branch
   pull_request:
     branches:
-      - main # Запускать сборку при создании PR в ветку main
+      - main # Trigger build when creating a PR to the main branch
   
-  jobs:
+jobs:
   build:
     runs-on: ubuntu-latest
   
-  uses: appleboy/ssh-action@v1
   steps:
-  - name: Deploy to VPS
+  - name: Checkout code
     uses: actions/checkout@v3
+
+  - name: Deploy application to VPS using SSH
+    uses: appleboy/ssh-action@v1
     with:
       host: ${{ secrets.VPS_IP }}
       username: ${{ secrets.VPS_USER }}
