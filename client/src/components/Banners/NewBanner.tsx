@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
+import theme from '../../theme';
 
 
 const BannerStyle = styled.div`
-        background-image: url('https://i.ibb.co/6Rpv4M73/1-5996.jpg');
+        background-image: url('https://i.ibb.co/HDCHwFZr/Turbotext-AI-Image-8447593.png');
         background-size: cover;
-        background-position: center;
+        background-position: center left;
         background-repeat: no-repeat;
         height: 65vh;
         display: flex;
@@ -15,7 +16,7 @@ const BannerStyle = styled.div`
 
     const BannerWrapper = styled.div`
       width: 100%;
-          background-color: rgb(212 134 147);
+          background-color: #494646;
     `;
 
     const TitleWrapper = styled.div`
@@ -23,7 +24,7 @@ const BannerStyle = styled.div`
         top: 49%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: #00ffa25e;
+        // background: #00ffa25e;
         color: #ff5a5a;
         width: 44vh;
     `
@@ -55,7 +56,7 @@ const NewBanner: React.FC = () => {
 
 
     return (
-        <div className="banner-wrapper" style={{ backgroundColor: '#f8f9fa', padding: '20px 0' }}>
+        <div className="banner-wrapper" style={{ backgroundColor: '#f8f9fa' }}>
             
             {screenSize.width < 768 ? (
                 <Container>
@@ -67,7 +68,7 @@ const NewBanner: React.FC = () => {
                         <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '10px' }}>
                                 Добро пожаловать в мой мир!
                             </h1>
-                            <p style={{ fontSize: '1.2rem', color: '#6c757d' }}>
+                            <p style={{ fontSize: '1.2rem', color: `${theme.colors.white}` }}>
                                 Мечтай смело, твори ярко, сияй всегда!
                             </p>
                         </TitleWrapper>
@@ -80,10 +81,10 @@ const NewBanner: React.FC = () => {
                 <Row className="align-items-center">
                     <Col md="6" className="text-center text-md-start">
                         <TitleWrapper style={{  width: '61vh', left: '33%' }}>
-                        <h1 style={{ lineHeight: 1, fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '10px', padding: '15px' }}>
+                        <h1 style={{ lineHeight: 1, fontSize: '5.5rem', fontWeight: 'bold', marginBottom: '10px', padding: '15px' }}>
                             Добро пожаловать в мой мир!
                         </h1>
-                        <p style={{ fontSize: '1.2rem', color: '#6c757d' }}>
+                        <p style={{ fontSize: '2.2rem', color: '#6c757d' }}>
                             Мечтай смело, твори ярко, сияй всегда!
                         </p>
                         </TitleWrapper>

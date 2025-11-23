@@ -1,6 +1,8 @@
 export const theme = {
   colors: {
-    primary: '#6C63FF',       // Фиолетовый (акцентные кнопки)
+    primary: '#fb8787',
+    primaryLight: '#f2bfbf',
+    primaryRich: '#ff5a5a',       
     secondary: '#4D96FF',     // Голубой (второстепенные элементы)
     background: '#F9F7FE',    // Светло-фиолетовый фон
     text: '#333333',          // Основной текст
@@ -9,6 +11,7 @@ export const theme = {
     black: '#000000',
     success: '#4CAF50',       // Для позитивных действий
     error: '#FF5252',         // Для ошибок
+    gray: '#494646'
   },
   fonts: {
     primary: '"Inter", sans-serif',  // Современный шрифт

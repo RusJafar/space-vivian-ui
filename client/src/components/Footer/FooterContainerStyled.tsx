@@ -5,6 +5,7 @@ import baseTheme from "../../theme";
 const FooterContainerStyled = styled.footer`
     width: 100%;
     background: ${baseTheme.colors.primary};
+    padding-bottom: 20px
 `
 
 const MobileFooterStyled = styled.footer`

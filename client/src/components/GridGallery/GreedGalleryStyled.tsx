@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const GridGalleryContainer = styled.div`
+interface GridGalleryContainerProps {
+    galleryBg: string;
+}
+
+const GridGalleryContainer = styled.div<GridGalleryContainerProps>`
     background-image: url(${props => props.galleryBg});
     width: 100%;
     height:100%;

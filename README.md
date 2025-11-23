@@ -68,3 +68,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Icons
+https://react-icons.github.io/react-icons/
+___
+docker build --platform linux/amd64 -t rusjafar/vi-ui:latest .
+docker push rusjafar/vi-ui:latest
+
+
+docker pull rusjafar/vi-ui:latest
+docker run --name client  -d -p 3000:3000  rusjafar/vi-ui
+
+
+## Настрока сервера Ubuntu
+
+`sudo apt update && sudo apt upgrade -y`
+`sudo apt install -y apt-transport-https ca-certificates curl software-properties-common`
+`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+`sudo apt install -y docker-ce`
+
+### Проверка работы Docker:
+
+`sudo systemctl start docker`
+`sudo systemctl enable docker`
+`docker --version`

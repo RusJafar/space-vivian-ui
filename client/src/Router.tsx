@@ -4,6 +4,9 @@ import MainPage from './pages/MainPage';
 import Contacts from './pages/Contacts';
 import TopMenu from './components/TopMenu/topMenu';
 import Footer from './components/Footer/Footer';
+import styled from 'styled-components';
+import theme from './theme';
+
 
 const AppRouter = ({children}: React.PropsWithChildren<{}>) => {
     return (
@@ -14,7 +17,7 @@ const AppRouter = ({children}: React.PropsWithChildren<{}>) => {
                     <Route path="/contacts" element={<Contacts />} />
                     <Route path="*" element={<>Not found</>} />
                 </Routes>
-            <Footer />
+            <Footer/>
         </Router>
     );
 };
