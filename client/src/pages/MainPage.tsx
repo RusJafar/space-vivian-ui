@@ -1,12 +1,8 @@
 import React from "react";
-import TopBanner from "../components/Banners/TopBanner.tsx";
 import {Col, Container, Row} from "reactstrap";
 import BirthdayBanner from "../components/Banners/BirthdayBanner";
 import NewBanner from "../components/Banners/NewBanner.tsx";
-import Footer from "../components/Footer/Footer.tsx";
-import { ScreenSizeProvider } from "../contexts/ScreenSizeContext.tsx";
-import TopMenu from "../components/TopMenu/topMenu.tsx";
-import { AboutMeGalleryImagesData, MainShorGallery } from "../data/galary.ts";
+import { MainShorGallery } from "../data/galary.ts";
 import ImageGallery from "../components/GridGallery/GridGellery.tsx";
 import { PageWrapStyled } from "../styles/GlobalStyles.tsx";
 import { Helmet } from "react-helmet-async";

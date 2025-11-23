@@ -92,3 +92,27 @@ docker run --name client  -d -p 3000:3000  rusjafar/vi-ui
 `sudo systemctl start docker`
 `sudo systemctl enable docker`
 `docker --version`
+
+## Установка Nginx 
+`sudo apt update`
+`sudo apt upgrade -y`
+
+Установка Nginx:
+`sudo apt install nginx -y`
+
+Включение автозапуска:
+`sudo systemctl enable nginx`
+
+Проверка статуса:
+`sudo systemctl status nginx`
+
+Основные команды:
+
+Запуск: `sudo systemctl start nginx`
+Остановка: `sudo systemctl stop nginx`
+Перезапуск: `sudo systemctl restart nginx`
+Перезагрузка конфигурации: `sudo systemctl reload nginx`
+Проверка конфигурации: `sudo nginx -t`
+
+
+
